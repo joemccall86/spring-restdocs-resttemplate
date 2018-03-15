@@ -4,6 +4,10 @@ Spring REST Docs extension to document APIs using Spring RestTemplate
 
 ## Overview
 
+For Spring Rest Docs 1.2.x, use version 0.1 of this library.
+
+For Spring Rest Docs 2.0.x, use version 0.2.0 of this library.
+
 ### Gradle usage
 
 Inside your build.gradle, add the following dependency:
