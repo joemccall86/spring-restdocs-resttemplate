@@ -13,6 +13,7 @@ This extension does not support concurrent tests. Tests must be run serially.
 * Provide tests/examples
 * Document code better
 * Remove compiler warnings
+* Update to work with Spring REST Docs 2.x
 
 ## Building from source
 
