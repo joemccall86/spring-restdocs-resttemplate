@@ -5,4 +5,9 @@ jobs:
       - image: circleci/openjdk:8u151
     steps:
       - checkout
-      - run: ./gradlew build
+      - run:
+          name: Build archive
+          command: ./gradlew build
+      - run:
+          name: Upload to bintray
+          command: ./gradlew bintrayUpload
