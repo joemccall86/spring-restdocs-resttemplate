@@ -14,11 +14,11 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 ext {
-    springRestdocsVersion = '1.2.3.RELEASE'
+    springRestdocsVersion = '2.0.0.RELEASE'
 }
 
 group = 'io.github.joemccall86'
-version = '0.1'
+version = '0.2.0'
 
 repositories {
     jcenter()

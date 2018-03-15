@@ -13,10 +13,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RestTemplateRestDocumentationConfigurer extends
-        RestDocumentationConfigurer<RestTemplateSnippetConfigurer, RestTemplateRestDocumentationConfigurer>
+        RestDocumentationConfigurer<RestTemplateSnippetConfigurer,
+                RestTemplateOperationPreprocessorsConfigurer,
+                RestTemplateRestDocumentationConfigurer>
         implements ClientHttpRequestInterceptor {
 
     private final RestTemplateSnippetConfigurer snippetConfigurer = new RestTemplateSnippetConfigurer(this);
+
+    private final RestTemplateOperationPreprocessorsConfigurer operationPreprocessorsConfigurer = new RestTemplateOperationPreprocessorsConfigurer(this);
 
     private RestDocumentationContextProvider contextProvider;
 
@@ -38,5 +42,10 @@ public class RestTemplateRestDocumentationConfigurer extends
     @Override
     public RestTemplateSnippetConfigurer snippets() {
         return snippetConfigurer;
+    }
+
+    @Override
+    public RestTemplateOperationPreprocessorsConfigurer operationPreprocessors() {
+        return this.operationPreprocessorsConfigurer;
     }
 }

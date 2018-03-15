@@ -21,7 +21,7 @@ apply plugin: "idea"
 apply plugin: "org.grails.grails-web"
 
 ext {
-	restDocsVersion = "1.2.3.RELEASE"
+	restDocsVersion = "2.0.0.BUILD-SNAPSHOT"
 	snippetsDir = file('src/docs/generated-snippets')
 }
 
@@ -77,7 +77,7 @@ dependencies {
 	testCompile "org.grails:grails-test-mixins:3.3.0"
 	testCompile "org.grails.plugins:geb"
 	testCompile "org.grails:grails-datastore-rest-client"
-	testCompile "io.github.joemccall86:spring-restdocs-resttemplate:0.1"
+	testCompile "io.github.joemccall86:spring-restdocs-resttemplate:0.2-SNAPSHOT"
 
 	testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
 	testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
