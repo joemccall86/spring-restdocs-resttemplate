@@ -1,4 +1,4 @@
-# Spring REST Docs RestTemplate
+# Spring REST Docs RestTemplate [![CircleCI](https://circleci.com/gh/joemccall86/spring-restdocs-resttemplate/tree/master.svg?style=svg)](https://circleci.com/gh/joemccall86/spring-restdocs-resttemplate/tree/master)
  
 Spring REST Docs extension to document APIs using Spring RestTemplate
 
