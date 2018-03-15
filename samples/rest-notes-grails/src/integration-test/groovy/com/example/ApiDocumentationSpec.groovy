@@ -30,8 +30,10 @@ import spock.lang.Specification
 
 import static io.github.joemccall86.spring.restdocs.resttemplate.RestTemplateRestDocumentation.document
 import static io.github.joemccall86.spring.restdocs.resttemplate.RestTemplateRestDocumentation.documentationConfiguration
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.removeHeaders
 import static org.springframework.restdocs.payload.PayloadDocumentation.*
 
 @Integration
@@ -58,6 +60,12 @@ class ApiDocumentationSpec extends Specification {
 	void 'test and document notes list request'() {
 		given:
 		rest.restTemplate.interceptors << document('notes-list-example',
+				preprocessRequest(
+						// Accept-Charset is removed because it is a very long string
+						// that is not strictly necessary and it muddies up the
+						// documentation.
+						removeHeaders('Accept-Charset')
+				),
 				preprocessResponse(prettyPrint()),
 				responseFields(
 						fieldWithPath('[].id').description('the id of the note'),
@@ -78,6 +86,12 @@ class ApiDocumentationSpec extends Specification {
 	void 'test and document create new note'() {
 		given:
 		rest.restTemplate.interceptors << document('notes-create-example',
+				preprocessRequest(
+						// Accept-Charset is removed because it is a very long string
+						// that is not strictly necessary and it muddies up the
+						// documentation.
+						removeHeaders('Accept-Charset')
+				),
 				preprocessResponse(prettyPrint()),
 				requestFields(
 						fieldWithPath('title').description('the title of the note'),
@@ -104,6 +118,12 @@ class ApiDocumentationSpec extends Specification {
 	void 'test and document getting specific note'() {
 		given:
 		rest.restTemplate.interceptors << document('note-get-example',
+				preprocessRequest(
+						// Accept-Charset is removed because it is a very long string
+						// that is not strictly necessary and it muddies up the
+						// documentation.
+						removeHeaders('Accept-Charset')
+				),
 				preprocessResponse(prettyPrint()),
 				responseFields(
 						fieldWithPath('id').description('the id of the note'),
