@@ -41,7 +41,7 @@ class ApiDocumentationRestTemplateSpec extends Specification {
 	JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation()
 
 	@Shared String urlBase
-	RestBuilder rest = new RestBuilder()
+	RestBuilder rest = new RestBuilder(registerConverters: false)
 
 	void setup() {
 		urlBase = "http://localhost:${serverPort}"
@@ -59,7 +59,6 @@ class ApiDocumentationRestTemplateSpec extends Specification {
 						fieldWithPath('[].body').description('the body of the note'),
 						fieldWithPath('[].tags').type(JsonFieldType.ARRAY).description('the list of tags associated with the note'),
 				)
-				.andWithPrefix('[].tags[].', fieldWithPath('id').description('the id of the tag'))
 		)
 
 		when:
@@ -95,6 +94,11 @@ class ApiDocumentationRestTemplateSpec extends Specification {
 
 		then:
 		response.statusCode == HttpStatus.CREATED
+
+		cleanup:
+		Note.withNewTransaction {
+			Note.findByTitle('Eureka!').delete()
+		}
 	}
 
 	void 'test and document getting specific note'() {
