@@ -32,13 +32,14 @@ ext {
 	snippetsDir = file('build/generated-snippets')
 }
 
-ext['spring-restdocs.version'] = '1.2.3.RELEASE'
+ext['spring-restdocs.version'] = '2.0.1.BUILD-SNAPSHOT'
+//ext['spring-restdocs.version'] = '1.2.3.RELEASE'
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	testCompile 'org.springframework.restdocs:spring-restdocs-core'
-	testCompile 'io.github.joemccall86:spring-restdocs-resttemplate:0.1'
+	testCompile 'io.github.joemccall86:spring-restdocs-resttemplate:0.2.0'
 	asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor:${project.ext['spring-restdocs.version']}"
 }
 

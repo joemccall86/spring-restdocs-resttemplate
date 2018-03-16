@@ -77,7 +77,7 @@ dependencies {
 	testCompile "org.grails:grails-test-mixins:3.3.0"
 	testCompile "org.grails.plugins:geb"
 	testCompile "org.grails:grails-datastore-rest-client"
-	testCompile "io.github.joemccall86:spring-restdocs-resttemplate:0.2-SNAPSHOT"
+	testCompile "io.github.joemccall86:spring-restdocs-resttemplate:0.2.0"
 
 	testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
 	testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
