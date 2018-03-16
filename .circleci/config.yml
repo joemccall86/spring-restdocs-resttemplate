@@ -9,5 +9,14 @@ jobs:
           name: Build archive
           command: ./gradlew build
       - run:
+          name: Test Rest Notes Grails Sample
+          command: cd samples/rest-notes-grails && ./gradlew integrationTest
+      - run:
+          name: Test Spring Data Rest Sample
+          command: cd samples/rest-notes-spring-data-rest && ./mvnw test
+      - run:
+          name: Test Spring Data Rest Sample
+          command: cd samples/rest-template && ./gradlew test
+      - run:
           name: Upload to bintray
           command: ./gradlew bintrayUpload
